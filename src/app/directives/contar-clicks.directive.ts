@@ -9,7 +9,7 @@ export class ContarClicksDirective{
 
 	// hostBinding permite manipular componente html del dom
 	
-	@HostBinding('style.opacity') opacity: number= .1;
+	@HostBinding('style.opacity') opacity: number= 1;
 
 	// host listener escucha eventos en el dom
 	@HostListener('click', ['$event.target']) onClick(btn){

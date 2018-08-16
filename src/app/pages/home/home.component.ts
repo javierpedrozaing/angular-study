@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+
 
 @Component({
-  selector: 'app-home'
+  selector: 'app-home',
   templateUrl: './home.component.html'
 })
 export class HomeComponent {
@@ -14,8 +14,7 @@ export class HomeComponent {
   listo = false;
   
 
-  constructor(private route: ActivatedRoute){
-  	
+  constructor(){
   	setTimeout(() => {
   		this.listo = true;
   	}, 3000);

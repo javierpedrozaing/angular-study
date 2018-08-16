@@ -12,6 +12,7 @@ import {AppRoutes} from "./app.routes";
 
 import {HomeComponent} from './pages/home/home.component';
 import {LugaresComponent} from './pages/lugares/lugares.component';
+import {DetalleComponent} from './pages/lugares/detalle.component';
 
 @NgModule({
    imports: [
@@ -28,7 +29,8 @@ import {LugaresComponent} from './pages/lugares/lugares.component';
     ResaltarDirective,
     ContarClicksDirective,
     HomeComponent,
-    LugaresComponent   
+    LugaresComponent,
+    DetalleComponent   
   ],
  
   providers: [],
