@@ -1,16 +1,37 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import {LugaresService} from '../../services/lugares.service';
 
 @Component({
   selector: 'app-detalle',
   templateUrl: './detalle.component.html'
 })
-export class DetalleComponent {
+export class DetalleComponent implements OnInit{
 
-  constructor(private route: ActivatedRoute){
+
+  id= null;
+  lugar = {};
+
+  constructor(private route: ActivatedRoute, private lugaresService: LugaresService){
     console.log(this.route.snapshot.params['id']);
-
+    console.log(this.route.snapshot.queryParams['action'])
+    console.log(this.route.snapshot.queryParams['refered'])
+    this.id = this.route.snapshot.params['id']    
+    
   }
+
+  ngOnInit() {
+    this.buscarLugar(this.id);
+  }
+  
+
+  buscarLugar(id){
+     this.lugar = this.lugaresService.buscarLugar(id); 
+  }
+
+
+
+
 
 }
 

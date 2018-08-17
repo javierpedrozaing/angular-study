@@ -6,9 +6,6 @@ import { Component } from '@angular/core';
   templateUrl: './home.component.html'
 })
 export class HomeComponent {
-  title = 'testApp';
-  a = 3;
-  b= 5;
   nombre = "";
   apellido = "";
   listo = false;
