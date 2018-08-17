@@ -1,18 +1,16 @@
 import {Injectable} from '@angular/core';
 
+import { AngularFireDatabase } from 'angularfire2/database';
+import {Http} from "@angular/http";
 
 @Injectable()
 export class LugaresService{
-
-   lugares = [
-  	{id: 1, nombre: "Floreria", active: true, cercania: 1, distancia:10, plan: "pagado",  description: "Descripción de mi negocio"},
-  	{id: 2, nombre: "Pasteleria", active: true, cercania: 2, distancia:20, plan: "gratuito", description: "Descripción de mi negocio"},
-  	{id: 3, nombre: "Veterinaria", active: false, cercania: 2, distancia:30, plan: 'pagado', description: "Descripción de mi negocio"},
-  	{id: 4, nombre: "Papelería", active: true, cercania: 3, distancia:40, plan: 'gratuito', description: "Descripción de mi negocio"}
-  ];
-
+  constructor(private afDB: AngularFireDatabase, private http: Http) {}
+  
+   
   public getLugares(){
-  	return this.lugares;
+  	//return this.lugares;
+    return  this.afDB.list('lugares/');
   }
 
   public buscarLugar(id){
@@ -21,8 +19,29 @@ export class LugaresService{
   	
   	//return this.lugares.find(({id}) => id == this.id) || null
 
-  	return this.lugares.find( lugar => lugar.id == id) || null;
+  	//return this.lugares.find( lugar => lugar.id == id) || null;
+    
+    return this.afDB.collection('lugares/'+id);
   	
+  }
+
+    public guardarLugar(lugar){      
+      this.afDB.database.ref('lugares/'+ lugar.id).set(lugar);
+      alert("Negocio guardado");
+    }
+
+  public getPosition(direccion){
+    return this.http.get("http://maps.google.com/maps/api/geocode/json?address=" + direccion);
+  }
+
+  public getLugar(id){
+    return this.afDB.object('lugares/'+ id);
+  } 
+
+  public updateLugar(lugar){
+    console.log(lugar);
+    alert("Negocio Actualizado");
+    //this.afDB.database.ref('lugares/'+ lugar.id).set(lugar);
   }
 
   

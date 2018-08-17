@@ -22,8 +22,12 @@ export class LugaresComponent implements OnInit{
   
   loadData(){
 
-    this.lugares = this.lugaresService.getLugares();
-
+    //this.lugares = this.lugaresService.getLugares();
+    this.lugaresService.getLugares()
+      .valueChanges().subscribe((lugares) => {
+        
+        this.lugares = lugares;
+      });
   }
 }
 
