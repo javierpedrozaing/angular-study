@@ -13,17 +13,17 @@ export class LugaresService{
     return  this.afDB.list('lugares/');
   }
 
-  public buscarLugar(id){
-  	// filter simpere nos va a devolver un arreglo
-  	//return this.lugares.filter((lugar) => { return lugar.id == this.id})[0] || null
+  // public buscarLugar(id){
+  // 	// filter simpere nos va a devolver un arreglo
+  // 	//return this.lugares.filter((lugar) => { return lugar.id == this.id})[0] || null
   	
-  	//return this.lugares.find(({id}) => id == this.id) || null
+  // 	//return this.lugares.find(({id}) => id == this.id) || null
 
-  	//return this.lugares.find( lugar => lugar.id == id) || null;
+  // 	//return this.lugares.find( lugar => lugar.id == id) || null;
     
-    return this.afDB.collection('lugares/'+id);
+  //   return this.afDB.collection('lugares/'+id);
   	
-  }
+  // }
 
     public guardarLugar(lugar){      
       this.afDB.database.ref('lugares/'+ lugar.id).set(lugar);
@@ -40,6 +40,7 @@ export class LugaresService{
 
   public updateLugar(lugar){
     console.log(lugar);
+    this.afDB.database.ref('lugares/'+ lugar.id).set(lugar);
     alert("Negocio Actualizado");
     //this.afDB.database.ref('lugares/'+ lugar.id).set(lugar);
   }

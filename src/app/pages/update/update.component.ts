@@ -22,6 +22,7 @@ export class UpdateComponent{
 
   updateLugar(){
 	this.lugaresService.updateLugar(this.lugar);
+
   }
 
 
@@ -32,8 +33,7 @@ export class UpdateComponent{
   			this.lugar.lat= result.json().results[0].geometry.location.lat;
   			this.lugar.lng= result.json().results[0].geometry.location.lng;
   			this.lugar.id = Date.now();
-  			this.lugaresService.guardarLugar(this.lugar);
-  			alert("Negocio guardado");
+  			this.lugaresService.guardarLugar(this.lugar);  		
   			this.lugar = {}; //limpiamos el formulario
   	});
   

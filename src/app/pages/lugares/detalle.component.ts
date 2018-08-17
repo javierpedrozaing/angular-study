@@ -21,16 +21,12 @@ export class DetalleComponent implements OnInit{
   }
 
   ngOnInit() {
-    this.buscarLugar(this.id);
+    this.lugaresService.getLugar(this.id)
+        .valueChanges().subscribe((lugar) => {
+        
+          this.lugar = lugar;
+      });
   }
-  
-
-  buscarLugar(id){
-     this.lugar = this.lugaresService.buscarLugar(id); 
-  }
-
-
-
 
 
 }
