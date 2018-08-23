@@ -18,9 +18,9 @@ export class HomeComponent {
 	
   }
 
-  clickButton(){
-  	alert("click en boton");
-  }
+  // clickButton(){
+  // 	alert("click en boton");
+  // }
 
 
 }

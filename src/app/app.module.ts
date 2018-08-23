@@ -40,7 +40,7 @@ import { UpdateComponent } from './pages/update/update.component';
     FormsModule,
     HttpModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyB_L90JHo4OpTz5P4h3lm48_HYZrwe69GQ'
+      apiKey: environment.apiKeymaps
     }),
 
   ],

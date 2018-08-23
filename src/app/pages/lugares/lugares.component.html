@@ -5,19 +5,27 @@
     <ul class="list-group">
       <ng-container *ngFor="let lugar of lugares; let i=index " [ngSwitch]="lugar.cercania">
 
-        <a routerLink="/detalle/{{lugar.id}}" [queryParams]="{action: 'update', refered: 'google' }" >
-          <li class="list-group-item" contar-clicks [ngStyle]="{color: (lugar.active) ? 'blank': 'gray'}" [ngClass]="{numero_par: (i+1) % 2 !==0 }" [resaltar]="lugar.plan" >{{lugar.nombre}}
+          <li class="list-group-item" contar-clicks [ngStyle]="{color: (lugar.active) ? 'blank': 'gray'}" [ngClass]="{numero_par: (i+1) % 2 !==0 }" [resaltar]="lugar.plan" >
+              <a routerLink="/detalle/{{lugar.id}}" [queryParams]="{action: 'update', refered: 'google' }" >
+                <h4>{{lugar.nombre | uppercase}}</h4>
+                
+              </a>
+              <small>Creado {{lugar.id | date:"yyyy/MM/dd" | uppercase}}</small>
              <span *ngSwitchCase="1" [ngStyle]="{color:'green'}">Muy cercano</span>
             <span *ngSwitchCase="2" [ngStyle]="{color:'black'}">Cercano</span>
             <span *ngSwitchCase="3" [ngStyle]="{color:'red'}">Lejano</span>
+            <div>
+                <p>{{lugar.descripcion}} </p>             
+                <!-- <small>{{lugar.lat}} - {{lugar.lng}}</small> -->
+            </div>
+            
+            <a routerLink="/update/{{lugar.id}}">
+              <span>EDITAR</span>
+            </a>
           </li>
-        </a>
+        
+        <!-- <li>Creado {{lugar.id | date:"medium" | uppercase}}</li> -->
 
-        <a routerLink="/update/{{lugar.id}}">
-          <span>EDITAR</span>
-        </a>
-
-     
       </ng-container>
     </ul>
   </div>
@@ -29,5 +37,5 @@
 </div>
 
 <agm-map [latitude]="lat" [longitude]="lng">
-  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+  <agm-marker *ngFor="let lugar of lugares" [latitude]="lugar.lat" [longitude]="lugar.lng"></agm-marker>
 </agm-map>

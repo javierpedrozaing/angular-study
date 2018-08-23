@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {LugaresService} from '../../services/lugares.service';
 import { ActivatedRoute } from '@angular/router';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-update',
@@ -15,9 +16,9 @@ export class UpdateComponent{
 
   	   this.lugaresService.getLugar(this.id)
   	   	.valueChanges().subscribe((lugar) => {
-        
+					
         	this.lugar = lugar;
-      });
+      },(error) => {console.log(error)});
   }
 
   updateLugar(){
@@ -34,8 +35,14 @@ export class UpdateComponent{
   			this.lugar.lng= result.json().results[0].geometry.location.lng;
   			this.lugar.id = Date.now();
   			this.lugaresService.guardarLugar(this.lugar);  		
-  			this.lugar = {}; //limpiamos el formulario
-  	});
+				this.lugar = {}; //limpiamos el formulario
+				swal({
+					title: 'Bien!',
+					text: 'Se Actualizo el lugar',
+					type: 'success',
+					confirmButtonText: 'Ok'
+				})
+		});
   
   }
 

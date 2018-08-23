@@ -11,7 +11,11 @@ export const environment = {
     projectId: 'testapp-4425b',
     storageBucket: 'testapp-4425b.appspot.com',
     messagingSenderId: '929107625414'
-  }
+  },
+
+  apiKeymaps: 'AIzaSyBngIfL8LHrcGT9hT3dDZf8IRW_8olQugk'
+
+
 };
 
 /*

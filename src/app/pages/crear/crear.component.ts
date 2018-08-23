@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {LugaresService} from '../../services/lugares.service';
-
+import swal from 'sweetalert2';
 @Component({
   selector: 'app-crear',
   templateUrl: './crear.component.html',
@@ -20,7 +20,12 @@ export class CrearComponent{
   			this.lugar.lng= result.json().results[0].geometry.location.lng;
   			this.lugar.id = Date.now();
   			this.lugaresService.guardarLugar(this.lugar);
-  			alert("Negocio guardado");
+  			swal({
+					title: 'Bien!',
+					text: 'Se creo un nuevo lugar',
+					type: 'success',
+					confirmButtonText: 'Ok'
+				})
   			this.lugar = {}; //limpiamos el formulario
   	});
   
