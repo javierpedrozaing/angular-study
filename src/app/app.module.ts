@@ -25,7 +25,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { CrearComponent } from './pages/crear/crear.component';
 import { UpdateComponent } from './pages/update/update.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // config firebase service
 
 @NgModule({
@@ -39,6 +39,7 @@ import { UpdateComponent } from './pages/update/update.component';
     AppRoutes,    
     FormsModule,
     HttpModule,
+    BrowserAnimationsModule,
     AgmCoreModule.forRoot({
       apiKey: environment.apiKeymaps
     }),
