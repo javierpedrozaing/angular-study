@@ -6,6 +6,8 @@ import {DetalleComponent} from './pages/lugares/detalle.component';
 import { ContactoComponent } from './pages/contacto/contacto.component';
 import { CrearComponent } from './pages/crear/crear.component';
 import { UpdateComponent } from './pages/update/update.component';
+import { LoginComponent } from "./login/login.component";
+import { RegistroComponent } from "./registro/registro.component";
 
 
 const routes: Routes = [
@@ -15,7 +17,9 @@ const routes: Routes = [
 	{path: 'detalle/:id', component: DetalleComponent},
 	{path: 'contacto', component: ContactoComponent},
 	{path: 'crear', component: CrearComponent},
-	{path: 'update/:id', component: UpdateComponent}
+	{path: 'update/:id', component: UpdateComponent},
+	{path: 'login', component: LoginComponent},
+	{path: 'registro', component: RegistroComponent}
 
 ];
 

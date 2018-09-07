@@ -56,5 +56,9 @@ export class LugaresService{
     //this.afDB.database.ref('lugares/'+ lugar.id).set(lugar);
   }
 
+  public deleteNote(lugar){
+    
+  }
+
   
 }

@@ -26,6 +26,9 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { CrearComponent } from './pages/crear/crear.component';
 import { UpdateComponent } from './pages/update/update.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginComponent } from './login/login.component';
+import { RegistroComponent } from './registro/registro.component';
+import { AuthService } from './services/auth.service';
 // config firebase service
 
 @NgModule({
@@ -54,10 +57,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     DetalleComponent,
     ContactoComponent,
     CrearComponent,
-    UpdateComponent,    
+    UpdateComponent,
+    LoginComponent,
+    RegistroComponent,    
   ],
  
-  providers: [LugaresService],
+  providers: [LugaresService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
